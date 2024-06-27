@@ -15,11 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Evento_APPLICATION\Evento_APPLICATION.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Evento_INFRASTRUCTURE\Evento_INFRASTRUCTURE.csproj" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

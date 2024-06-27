@@ -22,7 +22,7 @@ public class Administrador : BaseClass
         Role = RoleEnum.Administrador;
 
     }
-    public void AtualizarDados(string name, string senha, string email)
+    public void AtualizarDados(string name, string senha)
     {
         Name = name;
         Senha = senha;

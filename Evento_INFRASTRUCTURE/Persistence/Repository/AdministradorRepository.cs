@@ -14,6 +14,14 @@ public class AdministradorRepository : IAdministrador
         _context = context;
     }
 
+    public async Task<Administrador> AtulizarAdm(Guid id, Administrador administrador)
+    {
+        var adm = await GetId(id);
+        adm.AtualizarDados(administrador.Name, administrador.Senha);
+        await _context.SaveChangesAsync();
+
+        return adm;
+    }
 
     public async Task<Administrador> CreatedUser(Administrador administrador)
     {

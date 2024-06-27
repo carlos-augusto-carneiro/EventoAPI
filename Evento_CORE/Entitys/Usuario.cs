@@ -13,6 +13,7 @@ public class Usuario : BaseClass
 
     public Evento? Evento { get; private set; }
     public Guid IdEvento { get; private set; }
+    public List<ConfirmarUsuario>? Confirmacoes { get; private set; }
 
     public Usuario(string name, string senha, string email, DateTime dataDeRegistro, Guid idEvento, RoleEnum role)
     {
@@ -23,7 +24,7 @@ public class Usuario : BaseClass
         Role = RoleEnum.Usuario;
         IdEvento = idEvento;
     }
-    public void AtualizarDados(string name, string senha, string email)
+    public void AtualizarDados(string name, string senha)
     {
         Name = name;
         Senha = senha;

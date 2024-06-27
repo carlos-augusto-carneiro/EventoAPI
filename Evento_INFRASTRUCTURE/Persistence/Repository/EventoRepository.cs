@@ -21,6 +21,15 @@ public class EventoRepository : IEvento
         return evento;
     }
 
+    public async Task<Evento> AtualizarEvento(Guid id, Evento evento)
+    {
+        var atualizarEvento = await GetEventoByIdAsync(id);
+        atualizarEvento.AtualizarEvento(evento.NameEvent, evento.Descricao, evento.DataDoEventoInicio, evento.DataDoEventoFim, evento.MaxConvidados, evento.Preco);
+        await _context.SaveChangesAsync();
+
+        return atualizarEvento;
+    }
+
     public async Task<bool> DeleteEventoAsync(Guid id)
     {
         var buscarId = await GetEventoByIdAsync(id);

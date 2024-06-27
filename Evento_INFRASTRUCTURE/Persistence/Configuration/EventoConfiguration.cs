@@ -23,7 +23,7 @@ public class EventoConfiguration : IEntityTypeConfiguration<Evento>
             HasColumnOrder(2).
             HasMaxLength(1000);
 
-        builder.Property(e => e.DataDoEvento).
+        builder.Property(e => e.DataCriacao).
             IsRequired().
             HasColumnName("Data").
             HasColumnOrder(3);

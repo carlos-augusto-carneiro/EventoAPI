@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,31 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Evento_CORE\Evento_CORE.csproj" />
+    <ProjectReference Include="..\Evento_INFRASTRUCTURE\Evento_INFRASTRUCTURE.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.2" />
     <PackageReference Include="MediatR" Version="12.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UseCase\UseCaseAdm\HandlerAdm\" />
-    <Folder Include="UseCase\UseCaseAdm\MapAdm\" />
-    <Folder Include="UseCase\UseCaseAdm\RequestAdm\" />
-    <Folder Include="UseCase\UseCaseAdm\ResponseAdm\" />
-    <Folder Include="UseCase\UseCaseEvent\HandlerEvent\" />
-    <Folder Include="UseCase\UseCaseEvent\MapEvent\" />
-    <Folder Include="UseCase\UseCaseEvent\RequestEvent\" />
-    <Folder Include="UseCase\UseCaseEvent\ResponseEvent\" />
-    <Folder Include="UseCase\UseCaseUser\HandlerEvent\" />
-    <Folder Include="UseCase\UseCaseUser\MapEvent\" />
-    <Folder Include="UseCase\UseCaseUser\ResponseEvent\" />
-    <Folder Include="UseCase\UseCaseUser\RequestEvent\" />
-    <Folder Include="Validators\ValEvent\" />
-    <Folder Include="Validators\ValAdm\" />
-    <Folder Include="Validators\ValUser\" />
   </ItemGroup>
 
 </Project>

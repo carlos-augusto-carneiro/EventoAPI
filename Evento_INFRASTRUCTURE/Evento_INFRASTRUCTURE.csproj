@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Evento_APPLICATION\Evento_APPLICATION.csproj" />
+    <ProjectReference Include="..\Evento_CORE\Evento_CORE.csproj" />
   </ItemGroup>
 
 </Project>

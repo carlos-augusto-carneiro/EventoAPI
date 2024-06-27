@@ -63,6 +63,33 @@ namespace Evento_INFRASTRUCTURE.Persistence.Migrations
                     b.ToTable("Administradors");
                 });
 
+            modelBuilder.Entity("Evento_CORE.Entitys.ConfirmarUsuario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Confirmacao")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DataDeConfirmacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("IdEvento")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdUsuario")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdEvento");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("ConfirmarUsuarios");
+                });
+
             modelBuilder.Entity("Evento_CORE.Entitys.Evento", b =>
                 {
                     b.Property<Guid>("Id")
@@ -160,6 +187,25 @@ namespace Evento_INFRASTRUCTURE.Persistence.Migrations
                     b.ToTable("Usuarios");
                 });
 
+            modelBuilder.Entity("Evento_CORE.Entitys.ConfirmarUsuario", b =>
+                {
+                    b.HasOne("Evento_CORE.Entitys.Evento", "Evento")
+                        .WithMany("Confirmacoes")
+                        .HasForeignKey("IdEvento")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Evento_CORE.Entitys.Usuario", "Usuario")
+                        .WithMany("Confirmacoes")
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Evento");
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("Evento_CORE.Entitys.Evento", b =>
                 {
                     b.HasOne("Evento_CORE.Entitys.Administrador", "Administrador")
@@ -189,7 +235,14 @@ namespace Evento_INFRASTRUCTURE.Persistence.Migrations
 
             modelBuilder.Entity("Evento_CORE.Entitys.Evento", b =>
                 {
+                    b.Navigation("Confirmacoes");
+
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Evento_CORE.Entitys.Usuario", b =>
+                {
+                    b.Navigation("Confirmacoes");
                 });
 #pragma warning restore 612, 618
         }

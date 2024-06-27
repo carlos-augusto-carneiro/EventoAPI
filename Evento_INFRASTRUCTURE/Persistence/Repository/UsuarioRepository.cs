@@ -13,6 +13,16 @@ public class UsuarioRepository : IUsuario
     {
         _context = context;
     }
+
+    public async Task<Usuario> AtualizarUser(Guid id, Usuario usuario)
+    {
+        var user = await GetId(id);
+        user.AtualizarDados(usuario.Name, usuario.Senha);
+        await _context.SaveChangesAsync();
+
+        return user;
+    }
+
     public async Task<Usuario> CreatedUser(Usuario usuario)
     {
         _context.Usuarios.Add(usuario);
